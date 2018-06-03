@@ -1,0 +1,9 @@
+<% provide(:page_title, "Edit #{@post.title}")  %>
+<% provide(:author, 'active')  %>
+
+<h1>Editing Post</h1>
+
+<%= render 'form', post: @post, url: authors_posts_url(@post) %>
+
+<%= link_to 'Show', @post %> |
+<%= link_to 'Back', authors_posts_path %>
