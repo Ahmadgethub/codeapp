@@ -11,29 +11,61 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+  <div class="row">
+    <div class="col-md-4">
 
-  <div class="field">
-    <%= form.label :banner_image_url %>
-    <%= form.text_field :banner_image_url %>
-  </div>
+                   <!-- <div class="card" style="width: 18rem;">
+              <img class="card-img " src="..." alt="Card image cap"> -->
+              <div class="card">
+              <div class="card-block">
+              <% if @post.new_record? %>
+                <h5 class="card-title"><%= yield(:page_title) %></h5>
+                <% else %>
+                <h5 class="card-title">
+                <b>Edit</b>
+                <span class="thin-text"><%= @post.title %></span>
+                </h5>
+                <% end %>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                       <div class="field">
+                          <%= form.label :title %>
+                          <%= form.text_field :title, class: 'form-control' %>
+                       </div>
+                </li>
+                <li class="list-group-item">
+                          <div class="field">
+                            <%= form.label :banner_image_url %>
+                            <%= form.text_field :banner_image_url, class: 'form-control' %>
+                          </div>
+                </li>
+                <li class="list-group-item">
+                          <div class="field">
+                            <%= form.label :description %>
+                            <%= form.text_area :description, class: 'form-control' %>
+                          </div>
+                </li>
+                 <li class="list-group-item">
+                    <div class="actions">
+                      <%= form.submit " Save blog post ", class: 'btn btn-success btn-lg btn-blog' %>
+                    </div>   
+                </li>
+              </ul> 
+            </div>
 
-  <div class="field">
-    <%= form.label :body %>
+            <% if @post.persisted? %>
+             <%= link_to 'Show', @post %> |
+             <% end %>
+             <%= link_to 'Back', authors_posts_path %>
+
+    </div>
+     <div class="col-md-8">
+ <div class="field">
     <%= form.text_area :body %>
   </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+     </div>
+    </div>
 
 
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

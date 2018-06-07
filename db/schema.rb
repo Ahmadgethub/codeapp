@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_02_185115) do
+ActiveRecord::Schema.define(version: 2018_06_05_211736) do
 
   create_table "authors", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 2018_06_02_185115) do
     t.datetime "updated_at", null: false
     t.string "banner_image_url"
     t.integer "author_id"
+    t.boolean "puplished", default: false
+    t.datetime "published_at"
     t.index ["author_id"], name: "index_posts_on_author_id"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
   end
