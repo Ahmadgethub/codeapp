@@ -1,5 +1,10 @@
 
 <div class="row">
 <%= render @posts %>
-
 </div>
+
+<div class="next apple_pagination">
+<%= will_paginate @posts, container: false %> 
+</div>
+
+

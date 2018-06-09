@@ -28,7 +28,11 @@ def should_generate_new_friendly_id?
 end
 
 def display_day_published
+    if published_at.present?
     "published #{published_at.strftime('%-b %-d %-Y')}"
+    else
+        "Not published yet."
+    end
 end
 
 def publish
