@@ -20,6 +20,7 @@ class Post < ApplicationRecord
   friendly_id :title, use: :slugged
 
   belongs_to :author
+  
 
 scope :most_recent,->{order(published_at: :desc) }
 scope :published, -> { where(published: true) }
